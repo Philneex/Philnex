@@ -4,6 +4,28 @@
   document.getElementById("year").textContent = new Date().getFullYear();
 
   /* ------------------------------------------------------------------
+     Split section headings into words for staggered reveal
+     ------------------------------------------------------------------ */
+  document.querySelectorAll(".section-head h2, .phone-intro__text h2").forEach(function (h2) {
+    var words = h2.textContent.trim().split(" ");
+    h2.innerHTML = words.map(function (word, i) {
+      return '<span class="split-word" style="transition-delay:' + (i * 0.055) + 's"><span>' + word + "</span></span>";
+    }).join(" ");
+  });
+
+  /* ------------------------------------------------------------------
+     Scroll progress bar
+     ------------------------------------------------------------------ */
+  var scrollProgress = document.getElementById("scrollProgress");
+  if (scrollProgress) {
+    window.addEventListener("scroll", function () {
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var progress = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+      scrollProgress.style.width = progress + "%";
+    }, { passive: true });
+  }
+
+  /* ------------------------------------------------------------------
      Custom cursor
      ------------------------------------------------------------------ */
   var isFinePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
@@ -43,6 +65,53 @@
   } else if (cursor && cursorRing) {
     cursor.remove();
     cursorRing.remove();
+  }
+
+  /* ------------------------------------------------------------------
+     Magnetic buttons
+     ------------------------------------------------------------------ */
+  if (isFinePointer) {
+    document.querySelectorAll(".btn").forEach(function (btn) {
+      btn.addEventListener("mousemove", function (e) {
+        var rect = btn.getBoundingClientRect();
+        var x = e.clientX - rect.left - rect.width / 2;
+        var y = e.clientY - rect.top - rect.height / 2;
+        btn.style.transition = "transform 0.15s ease-out";
+        btn.style.transform = "translate(" + x * 0.35 + "px," + y * 0.35 + "px)";
+      });
+      btn.addEventListener("mouseleave", function () {
+        btn.style.transition = "transform 0.5s " + getComputedStyle(document.documentElement).getPropertyValue("--ease-pop");
+        btn.style.transform = "translate(0,0)";
+      });
+    });
+  }
+
+  /* ------------------------------------------------------------------
+     Project cards: 3D tilt + spotlight
+     ------------------------------------------------------------------ */
+  if (isFinePointer) {
+    document.addEventListener("mousemove", function (e) {
+      var card = e.target.closest(".project-card");
+      if (!card) return;
+      var rect = card.getBoundingClientRect();
+      var x = e.clientX - rect.left;
+      var y = e.clientY - rect.top;
+      var px = x / rect.width;
+      var py = y / rect.height;
+      var rotateY = (px - 0.5) * 14;
+      var rotateX = (0.5 - py) * 14;
+      card.style.transition = "transform 0.1s linear";
+      card.style.transform = "translateY(0) perspective(1200px) rotateX(" + rotateX + "deg) rotateY(" + rotateY + "deg) scale3d(1.02,1.02,1.02)";
+      card.style.setProperty("--mx", px * 100 + "%");
+      card.style.setProperty("--my", py * 100 + "%");
+    });
+
+    document.addEventListener("mouseout", function (e) {
+      var card = e.target.closest(".project-card");
+      if (!card || card.contains(e.relatedTarget)) return;
+      card.style.transition = "transform 0.6s " + getComputedStyle(document.documentElement).getPropertyValue("--ease-pop");
+      card.style.transform = "translateY(0) perspective(1200px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)";
+    });
   }
 
   /* ------------------------------------------------------------------
@@ -94,7 +163,7 @@
     }, 150);
   });
 
-  var portraitImg = document.querySelector(".hero__portrait-frame img");
+  var portraitImg = document.querySelector(".hero__portrait-frame img, .hero__portrait-frame video");
   var bgWord = document.querySelector(".hero__bg-word");
   window.addEventListener("scroll", function () {
     var y = window.scrollY;
@@ -103,6 +172,35 @@
       if (bgWord) bgWord.style.transform = "translate(-50%, calc(-50% + " + (y * 0.08) + "px))";
     }
   }, { passive: true });
+
+  /* ------------------------------------------------------------------
+     Hero intro video: play only while visible, mute toggle
+     ------------------------------------------------------------------ */
+  var introVideo = document.getElementById("introVideo");
+  var muteToggle = document.getElementById("muteToggle");
+
+  if (introVideo) {
+    var introObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          introVideo.play().catch(function () {});
+        } else {
+          introVideo.pause();
+        }
+      });
+    }, { threshold: 0.35 });
+    introObserver.observe(introVideo);
+  }
+
+  if (muteToggle && introVideo) {
+    muteToggle.addEventListener("click", function () {
+      introVideo.muted = !introVideo.muted;
+      var isUnmuted = !introVideo.muted;
+      muteToggle.classList.toggle("is-unmuted", isUnmuted);
+      muteToggle.setAttribute("aria-pressed", String(isUnmuted));
+      muteToggle.setAttribute("aria-label", isUnmuted ? "Ton ausschalten" : "Ton einschalten");
+    });
+  }
 
   /* ------------------------------------------------------------------
      Scroll reveal
@@ -129,6 +227,8 @@
     var suffix = el.getAttribute("data-suffix");
     var duration = 1600;
     var start = null;
+    var statCard = el.closest(".stat");
+    if (statCard) statCard.classList.add("is-counting");
 
     function step(timestamp) {
       if (!start) start = timestamp;
