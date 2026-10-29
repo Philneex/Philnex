@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="de" class="is-loading">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Phil — Content Creator &amp; Video Editor</title>
+<meta name="description" content="Phil ist Content Creator &amp; Video Editor aus Wien. 5 Jahre Erfahrung mit Hooks, Storytelling und Video-Content für Marken auf Instagram &amp; TikTok.">
+<meta name="theme-color" content="#111813">
+<meta property="og:title" content="Phil — Content Creator & Video Editor">
+<meta property="og:description" content="Content Creator &amp; Video Editor aus Wien. Hooks, Storytelling und Video-Content, der hängen bleibt.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23111813'/%3E%3Ctext x='30' y='45' font-family='Georgia,serif' font-size='40' fill='%23DCD5C6' text-anchor='middle'%3EP%3C/text%3E%3Ccircle cx='47' cy='44' r='4.5' fill='%23FF7132'/%3E%3C/svg%3E">
+<script>
+  document.documentElement.classList.add('js');
+  setTimeout(function () { if (!window.__ready) document.documentElement.classList.add('force-show'); }, 7000);
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Preloader -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__word"><span>P</span><span>H</span><span>I</span><span>L</span><span>N</span><span>E</span><span>X</span><span class="loader__dot">.</span></div>
+  <div class="loader__count"><b id="loaderCount">0</b>%</div>
+</div>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__label" id="cursorLabel"></span></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<!-- Navigation -->
+<header class="nav" id="nav">
+  <a class="nav__brand" href="#top" aria-label="PHILNEX – nach oben">PHILNEX<span>.</span></a>
+  <ul class="nav__links">
+    <li><a href="#ueber-mich">Über mich</a></li>
+    <li><a href="#erfolge">Erfolge</a></li>
+    <li><a href="#leistungen">Leistungen</a></li>
+    <li><a href="#projekte">Projekte</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+  </ul>
+  <a class="nav__cta" href="#kontakt" data-magnetic>Zusammenarbeiten</a>
+  <button class="nav__toggle" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menü öffnen">
+    <span></span><span></span>
+  </button>
+</header>
+
+<div class="menu" id="menu" aria-hidden="true">
+  <nav class="menu__list" aria-label="Hauptmenü">
+    <a href="#ueber-mich" data-menu-link="about"><span class="menu__dot"></span>Über mich</a>
+    <a href="#erfolge" data-menu-link="about2"><span class="menu__dot"></span>Erfolge</a>
+    <a href="#marken" data-menu-link="brands"><span class="menu__dot"></span>Marken</a>
+    <a href="#leistungen" data-menu-link="services"><span class="menu__dot"></span>Leistungen</a>
+    <a href="#projekte" data-menu-link="work"><span class="menu__dot"></span>Projekte</a>
+    <a href="#kontakt" data-menu-link="contact"><span class="menu__dot"></span>Kontakt</a>
+  </nav>
+  <p class="menu__contact">management@philnex.com<br>Wien, Österreich</p>
+</div>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top" data-theme="dark">
+  <div class="hero__layers" aria-hidden="true">
+    <svg class="hero__swoosh" viewBox="0 0 900 520" preserveAspectRatio="none"><path d="M0 520 L0 300 C140 190 300 170 450 250 C590 325 700 300 900 170 L900 520Z"/></svg>
+  </div>
+
+  <p class="hero__eyebrow label reveal-hero">Content Creator · Video Editor · Wien</p>
+
+  <div class="hero__photo" id="heroPhoto">
+    <div class="hero__orbit" aria-hidden="true">
+      <i class="o o1"></i><i class="o o2"><b></b></i><i class="o o3"></i>
+    </div>
+    <div class="hero__photo-in" data-speed="-.05">
+      <img src="assets/perfil/phil-hero.jpg" alt="Portrait von Phil" width="1126" height="1397" fetchpriority="high">
+    </div>
+  </div>
+  <span class="hero__tag reveal-hero">Wien, AT</span>
+
+  <canvas class="sculpt sculpt--hero" data-shape="0" data-pal="0" aria-hidden="true"></canvas>
+
+  <h1 class="hero__title">
+    <span class="mask"><span style="--i:0">Hooks, die</span></span>
+    <span class="mask"><span style="--i:1">hängen <em>bleiben.</em></span></span>
+    <span class="mask"><span style="--i:2"><i class="t-sans">Content, der</i> wirkt.</span></span>
+  </h1>
+
+  <div class="hero__foot">
+    <p class="hero__sub reveal-hero">Ich bin <strong>Phil</strong> — seit 5 Jahren erzähle ich Geschichten vor der Kamera und schneide sie so, dass Menschen dranbleiben. Für Marken. Für Restaurants. Für die eigene Bühne.</p>
+    <div class="hero__actions reveal-hero">
+      <a href="#projekte" class="btn btn--solid" data-magnetic>Projekte ansehen <span class="btn__arrow">↓</span></a>
+      <a href="#kontakt" class="btn btn--ghost" data-magnetic>Kontakt aufnehmen</a>
+    </div>
+  </div>
+
+  <a class="hero__cue reveal-hero" href="#vorstellung" id="cue">Scroll</a>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="band" data-theme="orange" aria-hidden="true">
+  <div class="band__track" data-dir="-1">
+    <div class="band__group">
+      <span class="band__item">Content Creation</span><span class="band__star">✦</span>
+      <span class="band__item band__item--soft">Hooks &amp; Storytelling</span><span class="band__star">✦</span>
+      <span class="band__item">Video Editing</span><span class="band__star">✦</span>
+      <span class="band__item band__item--soft">TikTok &amp; Instagram Growth</span><span class="band__star">✦</span>
+      <span class="band__item">Food-Vlogging</span><span class="band__star">✦</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ VORSTELLUNG (Intro-Video im iPhone-Mockup) ============ -->
+<section class="phone-sec" id="vorstellung" data-theme="dark" data-menu="intro" style="--sec-bg:#111813">
+  <svg class="curve curve--a" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true"><path d="M0 140 L0 96 C240 20 520 0 820 40 C1060 72 1260 96 1440 54 L1440 140Z"/></svg>
+  <div class="phone-sec__stage">
+    <div class="phone-sec__art" aria-hidden="true">
+      <div class="phone-sec__disc"></div>
+      <svg class="phone-sec__swoosh" viewBox="0 0 800 700" preserveAspectRatio="none"><path d="M800 0 C 700 200 540 260 420 400 C 300 540 160 560 0 700 L800 700Z"/></svg>
+    </div>
+
+    <div class="phone-sec__text">
+      <p class="label reveal">Kurz vorgestellt</p>
+      <h2 class="h2 split"><i class="t-sans">Lern mich in</i> 60 Sekunden <em>kennen.</em></h2>
+      <p class="phone-sec__p reveal">Wer ich bin, was ich mache und warum ich das liebe — direkt von mir erzählt.</p>
+    </div>
+
+    <div class="phone-wrap">
+      <canvas class="sculpt sculpt--phone" data-shape="2" data-pal="2" aria-hidden="true"></canvas>
+      <div class="phone" id="phone">
+        <i class="phone__btn phone__btn--power"></i>
+        <i class="phone__btn phone__btn--v1"></i>
+        <i class="phone__btn phone__btn--v2"></i>
+        <i class="phone__btn phone__btn--v3"></i>
+        <div class="phone__body">
+          <div class="phone__screen">
+            <i class="phone__island"></i>
+            <i class="phone__flash"></i>
+            <video id="introVideo" src="assets/perfil/phil-intro.mp4" poster="assets/perfil/phil-intro-poster.jpg" width="2160" height="3840" muted loop playsinline webkit-playsinline autoplay preload="auto" aria-label="Vorstellungsvideo von Phil"></video>
+            <i class="phone__sheen"></i>
+            <button class="phone__mute" id="muteToggle" type="button" aria-label="Ton einschalten" aria-pressed="false">
+              <svg class="i-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.42.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06a8.99 8.99 0 0 0 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
+              <svg class="i-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.26 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ÜBER MICH ============ -->
+<section class="about" id="ueber-mich" data-theme="dark" data-menu="about" style="--sec-bg:#33402B">
+  <svg class="curve curve--b" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true"><path d="M0 140 L0 70 C200 130 360 120 560 70 C820 4 1060 6 1440 92 L1440 140Z"/></svg>
+  <canvas class="sculpt sculpt--about" data-shape="1" data-pal="1" aria-hidden="true"></canvas>
+  <div class="container about__grid">
+    <div class="about__head">
+      <p class="label reveal">Über mich</p>
+      <h2 class="h2 h2--xl split">Vor und hinter der <em>Kamera</em> zuhause.</h2>
+    </div>
+    <div class="about__text">
+      <p class="about__lead" id="lead">Seit über <strong>5 Jahren</strong> stehe ich vor und hinter der Kamera – für große Marken genauso wie für meine eigene Marke. Was als Leidenschaft fürs Reden vor der Kamera und für Videoschnitt begann, ist heute mein Beruf: Ich entwickle Hooks, erzähle Geschichten und baue Content, der auf Instagram und TikTok wirklich hängen bleibt.</p>
+      <p class="about__body reveal">Von meiner Basis in <strong>Wien</strong> aus arbeite ich mit internationalen Marken – aber auch ganz nah dran: Als Food-Vlogger war ich in zahlreichen Restaurants der Stadt unterwegs und habe gezeigt, wie vielseitig gutes Storytelling sein kann, vom Drei-Sekunden-Hook bis zur ausgearbeiteten Kampagne.</p>
+    </div>
+    <dl class="facts reveal">
+      <div><dt>5 Jahre</dt><dd>Erfahrung als Creator</dd></div>
+      <div><dt>DE / EN</dt><dd>Content zweisprachig</dd></div>
+      <div><dt>Wien</dt><dd>Standort &amp; Basis</dd></div>
+      <div><dt>360°</dt><dd>Konzept bis Schnitt</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ============ REICHWEITE / ERFOLGE ============ -->
+<section class="stats" id="erfolge" data-theme="dark" data-menu="about2" style="--sec-bg:#111813">
+  <svg class="curve curve--c" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true"><path d="M0 140 L0 34 C260 120 520 130 760 74 C1000 18 1220 18 1440 78 L1440 140Z"/></svg>
+  <div class="container stats__head">
+    <p class="label reveal">Reichweite</p>
+    <h2 class="h2 split">Zahlen, <i class="t-sans">die für</i> <em>sich sprechen.</em></h2>
+  </div>
+  <div class="stats__list">
+    <div class="stat" data-shift="1">
+      <span class="stat__n"><b data-count="91500">91.500</b></span>
+      <p class="stat__l reveal">Follower auf TikTok</p>
+    </div>
+    <div class="stat" data-shift="-1">
+      <span class="stat__n"><b data-count="10400">10.400</b></span>
+      <p class="stat__l reveal">Follower auf Instagram</p>
+    </div>
+    <div class="stat" data-shift="1">
+      <span class="stat__n"><b data-count="1" data-suffix=" Mio.+">1 Mio.+</b></span>
+      <p class="stat__l reveal">Views auf einzelnen Videos</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARKEN & PARTNER ============ -->
+<section class="brands" id="marken" data-theme="dark" data-menu="brands" style="--sec-bg:#33402B">
+  <svg class="curve curve--a" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true"><path d="M0 140 L0 96 C240 20 520 0 820 40 C1060 72 1260 96 1440 54 L1440 140Z"/></svg>
+  <div class="container brands__head">
+    <p class="label reveal">Marken &amp; Partner</p>
+    <h2 class="h2 split">Zusammenarbeit, <em>die funktioniert.</em></h2>
+    <p class="lede reveal">Von Streetwear-Kampagnen über Food-Content bis zur Musikpromotion für Labels weltweit — eine Auswahl der Marken und Partner, mit denen ich bereits gearbeitet habe.</p>
+  </div>
+  <ul class="brands__list">
+    <li class="brand" data-shift="1"><span class="brand__name">Diesel</span></li>
+    <li class="brand" data-shift="-1"><span class="brand__name">Temu</span></li>
+    <li class="brand" data-shift="1"><span class="brand__name">Alfric Eden</span></li>
+    <li class="brand" data-shift="-1"><span class="brand__name">Kuga Koffee</span></li>
+    <li class="brand" data-shift="1"><span class="brand__name">Sang Sang</span></li>
+    <li class="brand" data-shift="-1"><span class="brand__name">Tokki</span></li>
+    <li class="brand brand--soft" data-shift="1"><span class="brand__name">Musikpromotion<br>für Labels weltweit</span></li>
+  </ul>
+</section>
+
+<!-- ============ LEISTUNGEN (horizontal) ============ -->
+<section class="services" id="leistungen" data-theme="dark" data-menu="services" style="--sec-bg:#111813">
+  <svg class="curve curve--b" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true"><path d="M0 140 L0 70 C200 130 360 120 560 70 C820 4 1060 6 1440 92 L1440 140Z"/></svg>
+  <div class="services__stage">
+    <div class="services__track" id="servicesTrack">
+
+      <div class="panel panel--intro">
+        <p class="label">Leistungen</p>
+        <h2 class="h2">Was ich für dich <em>übernehme.</em></h2>
+        <span class="panel__hint" aria-hidden="true">→</span>
+      </div>
+
+      <article class="panel panel--forest">
+        <div class="panel__txt">
+          <h3>Content Creation</h3>
+          <p>Von der Idee bis zum fertigen Clip — Konzept, Dreh und Umsetzung aus einer Hand.</p>
+        </div>
+        <div class="panel__art"><i class="art art--glass"></i></div>
+      </article>
+
+      <article class="panel panel--orange">
+        <div class="panel__txt">
+          <h3>Hooks &amp; Storytelling</h3>
+          <p>Die ersten drei Sekunden entscheiden. Ich baue Hooks, die zum Weiterschauen zwingen.</p>
+        </div>
+        <div class="panel__art"><i class="art art--light"></i></div>
+      </article>
+
+      <article class="panel panel--cream">
+        <div class="panel__txt">
+          <h3>Video Editing</h3>
+          <p>Schnitt, Pacing und Sounddesign mit Adobe Premiere Pro, Adobe Audition &amp; Canva — sauber, rhythmisch, plattformgerecht.</p>
+        </div>
+        <div class="panel__art"><i class="art art--chrome"></i></div>
+      </article>
+
+      <article class="panel panel--moss">
+        <div class="panel__txt">
+          <h3>Instagram &amp; TikTok Growth</h3>
+          <p>Strategien, die Reichweite und Community nachhaltig wachsen lassen.</p>
+        </div>
+        <div class="panel__art"><i class="art art--velvet"></i></div>
+      </article>
+
+      <article class="panel panel--coal">
+        <div class="panel__txt">
+          <h3>Engagement-Strategien</h3>
+          <p>Content, der nicht nur angeschaut, sondern kommentiert und geteilt wird.</p>
+        </div>
+        <div class="panel__art"><i class="art art--stone"></i></div>
+      </article>
+
+      <article class="panel panel--forest">
+        <div class="panel__txt">
+          <h3>Food-Vlogging</h3>
+          <p>Nahbarer Restaurant-Content, der Lust auf mehr macht — erprobt in Wiens Gastro-Szene.</p>
+        </div>
+        <div class="panel__art">
+          <i class="art art--plants">
+            <svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <path d="M150 420 C150 300 150 220 150 120" stroke="#0f1a0d" stroke-width="3" fill="none"/>
+              <path d="M150 330 C60 310 20 240 40 170 C110 190 150 250 150 330Z" fill="#2c4a22"/>
+              <path d="M150 330 C240 300 285 230 262 160 C190 185 150 250 150 330Z" fill="#3a5f2c"/>
+              <path d="M150 250 C80 220 60 150 85 90 C140 120 155 180 150 250Z" fill="#4c7a38"/>
+              <path d="M150 240 C220 210 245 140 222 80 C168 112 148 170 150 240Z" fill="#244020"/>
+              <path d="M150 160 C110 130 112 80 140 40 C170 80 168 120 150 160Z" fill="#5f8e45"/>
+              <g stroke="#0d170b" stroke-width="2" fill="none" opacity=".6">
+                <path d="M150 330 C100 290 70 240 42 172"/><path d="M150 330 C200 290 235 240 260 162"/>
+                <path d="M150 250 C110 210 95 160 86 94"/><path d="M150 240 C190 200 210 150 222 84"/>
+              </g>
+            </svg>
+          </i>
+        </div>
+      </article>
+
+      <div class="panel panel--tools">
+        <p class="label">Tools</p>
+        <ul class="tools"><li>Adobe Premiere Pro</li><li>Adobe Audition</li><li>Canva</li></ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE AFTERTASTE (Featured Creative Project) ============ -->
+<section class="after" id="aftertaste" data-theme="dark" style="--sec-bg:#111813">
+  <div class="after__bg" aria-hidden="true">
+    <svg class="after__swoosh" viewBox="0 0 900 520" preserveAspectRatio="none"><path d="M0 150 C140 60 300 40 450 110 C590 175 700 150 900 30 L900 330 C700 450 590 470 450 400 C300 330 140 350 0 440Z"/></svg>
+  </div>
+
+  <div class="container after__head">
+    <p class="after__meta reveal"><span>Eigenständiges Kreativprojekt</span><span>Cinematic Satire</span><span>2:27 Min.</span></p>
+    <h2 class="after__title" aria-label="THE AFTERTASTE">
+      <span class="mask"><span class="after__the">The</span></span>
+      <span class="mask"><span class="after__word">Aftertaste</span></span>
+    </h2>
+    <p class="after__lede reveal">Manche Erfahrungen hinterlassen einen <em>bitteren</em> Nachgeschmack.</p>
+  </div>
+
+  <div class="container after__stage">
+    <div class="after__flank after__flank--l" aria-hidden="true">
+      <div class="after__ph reveal after__ph--arch"><img data-speed="-.07" src="assets/aftertaste/mood-whisk.jpg" alt="" width="350" height="380" loading="lazy"></div>
+      <div class="after__ph reveal after__ph--pebble"><img data-speed="-.12" src="assets/aftertaste/mood-bowl.jpg" alt="" width="334" height="206" loading="lazy"></div>
+    </div>
+
+    <figure class="after__film reveal" id="afterFilm">
+      <span class="after__sun" aria-hidden="true"></span>
+      <span class="after__arch" aria-hidden="true"></span>
+      <div class="after__frame">
+        <video id="afterVideo" src="assets/aftertaste/the-aftertaste.mp4" poster="assets/aftertaste/poster.jpg" preload="none" playsinline webkit-playsinline controlslist="nodownload" width="720" height="1280"></video>
+        <button class="after__play" id="afterPlay" type="button" aria-label="THE AFTERTASTE abspielen (2:27 Min., mit Ton)" data-magnetic>
+          <span class="after__play-ico" aria-hidden="true"></span>
+          <span class="after__play-t">2:27 Min.</span>
+        </button>
+      </div>
+    </figure>
+
+    <div class="after__flank after__flank--r" aria-hidden="true">
+      <div class="after__ph reveal after__ph--tall"><img data-speed="-.05" src="assets/aftertaste/mood-steam.jpg" alt="" width="304" height="378" loading="lazy"></div>
+      <div class="after__ph reveal after__ph--cut"><img data-speed="-.14" src="assets/aftertaste/mood-cocktail.jpg" alt="" width="276" height="378" loading="lazy"></div>
+    </div>
+  </div>
+
+  <div class="container after__scenes">
+
+    <article class="scene scene--a">
+      <div class="scene__txt">
+        <p class="label reveal">Das Konzept</p>
+        <h3 class="scene__h reveal">Aus Enttäuschung wird eine <em>kreative Idee.</em></h3>
+        <p class="scene__p reveal">Eine kurzfristig zurückgezogene Jobzusage wird zum Ausgangspunkt eines satirischen Kurzfilms. THE AFTERTASTE übersetzt eine persönliche Erfahrung in eine visuelle Geschichte über gebrochene Versprechen, Erwartungen und den schönen Schein.</p>
+      </div>
+      <div class="scene__art scene__art--a" aria-hidden="true">
+        <div class="after__ph reveal after__ph--round"><img data-speed="-.06" src="assets/aftertaste/mood-powder.jpg" alt="" width="258" height="378" loading="lazy"></div>
+        <div class="after__ph reveal after__ph--water"><img data-speed="-.13" src="assets/aftertaste/mood-water.jpg" alt="" width="158" height="338" loading="lazy"></div>
+      </div>
+    </article>
+
+    <article class="scene scene--b">
+      <div class="scene__art scene__art--b" aria-hidden="true">
+        <div class="after__ph reveal after__ph--posters"><img data-speed="-.04" src="assets/aftertaste/mood-posters.jpg" alt="" width="436" height="260" loading="lazy"></div>
+        <div class="after__ph reveal after__ph--tiles"><img data-speed="-.1" src="assets/aftertaste/mood-tiles.jpg" alt="" width="304" height="334" loading="lazy"></div>
+      </div>
+      <div class="scene__txt">
+        <p class="label reveal">Die visuelle Welt</p>
+        <h3 class="scene__h reveal">Ästhetisch. Bitter. <em>Bewusst irritierend.</em></h3>
+        <p class="scene__p reveal">Die Bildsprache verbindet hochwertige Werbeästhetik mit schwarzem Humor und symbolischen Details. Matcha wird dabei zum visuellen Leitmotiv und zum Sinnbild eines bitteren Nachgeschmacks.</p>
+      </div>
+    </article>
+
+    <article class="scene scene--c">
+      <div class="scene__txt">
+        <p class="label reveal">Mein Beitrag</p>
+        <h3 class="scene__h reveal">Von der ersten Idee bis zum <em>finalen Schnitt.</em></h3>
+        <ul class="after__roles reveal"><li>Konzeptentwicklung</li><li>Creative Direction</li><li>Art Direction</li><li>Videoproduktion</li><li>Schnitt</li><li>Sounddesign</li></ul>
+        <p class="scene__p scene__p--close reveal">Aus einer Erfahrung, die ich nicht kontrollieren konnte, wurde eine Geschichte, die ich selbst inszeniert habe.</p>
+      </div>
+      <div class="scene__art scene__art--c" aria-hidden="true">
+        <div class="after__ph reveal after__ph--still"><img data-speed="-.05" src="assets/aftertaste/still-cocktail.jpg" alt="" width="540" height="960" loading="lazy"></div>
+        <div class="after__ph reveal after__ph--glass"><img data-speed="-.12" src="assets/aftertaste/mood-glass.jpg" alt="" width="192" height="332" loading="lazy"></div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============ PORTFOLIO / PROJEKTE ============ -->
+<section class="work" id="projekte" data-theme="dark" data-menu="work" style="--sec-bg:#111813">
+  <svg class="work__line" id="workLine" viewBox="0 0 1000 2600" preserveAspectRatio="none" aria-hidden="true">
+    <path id="workPath" d="M-20 140 C 260 60 420 360 520 520 C 640 720 820 560 900 800 C 980 1040 700 1120 520 1260 C 340 1400 120 1500 220 1760 C 320 2020 640 1940 760 2160 C 840 2300 960 2360 1040 2440" />
+  </svg>
+  <div class="container work__head">
+    <p class="label reveal">Portfolio</p>
+    <h2 class="h2 h2--xl split">Ausgewählte <em>Projekte.</em></h2>
+    <p class="lede reveal">Eine Auswahl an Markenkampagnen und Food-Vlogging-Content — vertikal gedacht, für Instagram &amp; TikTok gebaut.</p>
+    <div class="filters reveal" id="filters" role="group" aria-label="Projekte filtern"></div>
+  </div>
+  <div class="work__cols" id="projectGrid"></div>
+</section>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Projektvideo">
+  <div class="lightbox__inner" id="lightboxInner">
+    <button class="lightbox__close" id="lightboxClose" type="button" aria-label="Schließen">✕</button>
+    <video id="lightboxVideo" controls playsinline></video>
+    <div class="lightbox__meta">
+      <strong id="lightboxTitle"></strong>
+      <span id="lightboxDesc"></span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SPRACHEN ============ -->
+<section class="langs" id="sprachen" data-theme="dark" data-menu="langs" style="--sec-bg:#33402B">
+  <svg class="curve curve--c" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true"><path d="M0 140 L0 34 C260 120 520 130 760 74 C1000 18 1220 18 1440 78 L1440 140Z"/></svg>
+  <div class="container">
+    <p class="label reveal">Sprachen</p>
+    <h2 class="h2 split">International <em>einsetzbar.</em></h2>
+    <div class="langs__grid">
+      <div class="lang" data-level="1">
+        <svg class="lang__ring" viewBox="0 0 200 200" aria-hidden="true">
+          <circle class="lang__track" cx="100" cy="100" r="88"/><circle class="lang__bar" cx="100" cy="100" r="88"/>
+        </svg>
+        <div class="lang__txt"><h3>Deutsch</h3><p>Muttersprache</p></div>
+      </div>
+      <div class="lang" data-level=".88">
+        <svg class="lang__ring" viewBox="0 0 200 200" aria-hidden="true">
+          <circle class="lang__track" cx="100" cy="100" r="88"/><circle class="lang__bar" cx="100" cy="100" r="88"/>
+        </svg>
+        <div class="lang__txt"><h3>Englisch</h3><p>C1</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KONTAKT ============ -->
+<section class="contact" id="kontakt" data-theme="dark" data-menu="contact" style="--sec-bg:#111813">
+  <svg class="curve curve--b" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true"><path d="M0 140 L0 70 C200 130 360 120 560 70 C820 4 1060 6 1440 92 L1440 140Z"/></svg>
+  <canvas class="sculpt sculpt--contact" data-shape="0" data-pal="3" aria-hidden="true"></canvas>
+  <div class="container contact__inner">
+    <p class="label reveal">Kontakt</p>
+    <h2 class="contact__title">
+      <span class="mask"><span>Lass uns</span></span>
+      <span class="mask"><span><em>etwas</em> erschaffen.</span></span>
+    </h2>
+
+    <div class="contact__grid">
+      <ul class="contact__list reveal">
+        <li><span class="label">Instagram</span><a href="https://www.instagram.com/philnex" target="_blank" rel="noopener">@philnex</a></li>
+        <li><span class="label">TikTok</span><a href="https://www.tiktok.com/@philneex" target="_blank" rel="noopener">@philneex</a></li>
+        <li><span class="label">E-Mail</span><a href="mailto:management@philnex.com">management@philnex.com</a></li>
+        <li><span class="label">Standort</span><p>Wien, Österreich</p></li>
+      </ul>
+
+      <form class="form reveal" id="contactForm">
+        <div class="field"><label for="name">Name</label><input type="text" id="name" name="name" required autocomplete="name"></div>
+        <div class="field"><label for="email">E-Mail</label><input type="email" id="email" name="email" required autocomplete="email"></div>
+        <div class="field"><label for="message">Nachricht</label><textarea id="message" name="message" rows="3" required></textarea></div>
+        <p class="form__note">Das Formular öffnet dein E-Mail-Programm mit einer vorausgefüllten Nachricht an management@philnex.com.</p>
+        <button type="submit" class="btn btn--solid" data-magnetic>Nachricht senden <span class="btn__arrow">→</span></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer" data-theme="orange" style="--sec-bg:#FF7132">
+  <svg class="curve curve--a" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true"><path d="M0 140 L0 96 C240 20 520 0 820 40 C1060 72 1260 96 1440 54 L1440 140Z"/></svg>
+  <div class="footer__word" id="footerWord" aria-hidden="true"><span>P</span><span>H</span><span>I</span><span>L</span><span>N</span><span>E</span><span>X</span><span>.</span></div>
+  <div class="footer__row">
+    <p class="footer__links">
+      <a href="https://www.instagram.com/philnex" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.tiktok.com/@philneex" target="_blank" rel="noopener">TikTok</a>
+      <a href="mailto:management@philnex.com">E-Mail</a>
+    </p>
+    <p class="footer__copy"><span>© <span id="year"></span> Phil. Alle Rechte vorbehalten.</span> <span>Wien, Österreich</span></p>
+  </div>
+</footer>
+
+<script src="js/projects-data.js"></script>
+<script src="js/sculpture.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
