@@ -82,17 +82,6 @@ const PROJECTS = [
     link: null
   },
   {
-    id: "temu-03",
-    title: "Temu Markenkampagne",
-    brand: "Temu",
-    category: "Markenkampagne",
-    description: "Clip aus der Temu-Kampagne – Fokus auf Authentizität vor der Kamera statt klassischer Werbe-Optik.",
-    type: "video",
-    src: "assets/proyectos/temu-markenkampagne-03.mp4",
-    poster: "assets/proyectos/temu-markenkampagne-03-poster.jpg",
-    link: null
-  },
-  {
     id: "sang-sang-01",
     title: "Sang Sang – Food-Vlog",
     brand: "Sang Sang",

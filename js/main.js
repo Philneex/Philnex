@@ -589,14 +589,44 @@ if (proofMute && proofVideo) {
   }
 
   /* ------------------------------------------------------------------
-     Contact form -> mailto
+     Contact form -> sent directly via FormSubmit (no account needed;
+     the first message ever triggers a one-time activation mail to
+     management@philnex.com). If sending fails, offer the mailto link.
      ------------------------------------------------------------------ */
-  var form = $("#contactForm");
+  var form = $("#contactForm"), formStatus = $("#formStatus");
+  var FORM_ENDPOINT = "https://formsubmit.co/ajax/management@philnex.com";
+  function setStatus(kind, html) {
+    form.classList.remove("is-sending", "is-sent", "is-error");
+    if (kind) form.classList.add("is-" + kind);
+    formStatus.innerHTML = html || "";
+  }
   if (form) form.addEventListener("submit", function (e) {
     e.preventDefault();
+    if (form.classList.contains("is-sending")) return;
     var name = $("#name").value.trim(), email = $("#email").value.trim(), msg = $("#message").value.trim();
-    window.location.href = "mailto:management@philnex.com?subject=" + encodeURIComponent(T("Anfrage von ") + name + " — philnex.com") +
+    var subject = T("Anfrage von ") + name + " — philnex.com";
+    var mailto = "mailto:management@philnex.com?subject=" + encodeURIComponent(subject) +
       "&body=" + encodeURIComponent(msg + "\n\n— " + name + " (" + email + ")");
+    var honey = form.querySelector('[name="_honey"]');
+    if (honey && honey.value) { form.reset(); setStatus("sent", T("Danke! Deine Nachricht ist angekommen – ich melde mich bald bei dir.")); return; }
+    var btn = form.querySelector('button[type="submit"]');
+    setStatus("sending", T("Wird gesendet …"));
+    if (btn) btn.disabled = true;
+    fetch(FORM_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify({ name: name, email: email, message: msg, _subject: subject, _replyto: email, _template: "table", _captcha: "false" })
+    }).then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return { ok: r.ok, d: d }; }); })
+      .then(function (res) {
+        if (res.ok && String(res.d.success) === "true") {
+          form.reset();
+          setStatus("sent", T("Danke! Deine Nachricht ist angekommen – ich melde mich bald bei dir."));
+        } else { throw new Error(res.d && res.d.message || "send failed"); }
+      })
+      .catch(function () {
+        setStatus("error", T("Das hat leider nicht geklappt.") + ' <a href="' + mailto + '">' + T("Schreib mir stattdessen direkt per E-Mail.") + "</a>");
+      })
+      .then(function () { if (btn) btn.disabled = false; });
   });
 
   /* ------------------------------------------------------------------
@@ -608,10 +638,10 @@ if (proofMute && proofVideo) {
   /* hand-picked strongest frames from each project video (food clips keep their posters) */
   var FLY = [
     "assets/hero/fly-diesel-01.jpg", "assets/hero/fly-alfric-01.jpg", "assets/proyectos/meatballs-kochvideo-01-poster.jpg",
-    "assets/hero/fly-ck-02.jpg", "assets/hero/fly-aftertaste-01.jpg", "assets/hero/fly-temu-01.jpg",
+    "assets/hero/fly-ck-02.jpg", "assets/hero/fly-aftertaste-01.jpg",
     "assets/hero/fly-diesel-02.jpg", "assets/proyectos/salmon-dill-kochvideo-01-poster.jpg", "assets/hero/fly-alfric-02.jpg",
     "assets/hero/fly-aot-01.jpg", "assets/hero/fly-ck-01.jpg", "assets/hero/fly-aftertaste-02.jpg", "assets/proyectos/sang-sang-food-vlogging-01-poster.jpg",
-    "assets/hero/fly-diesel-03.jpg", "assets/hero/fly-temu-02.jpg", "assets/hero/fly-ck-03.jpg",
+    "assets/hero/fly-diesel-03.jpg", "assets/hero/fly-ck-03.jpg",
     "assets/hero/fly-aot-03.jpg", "assets/proyectos/tokki-food-vlogging-01-poster.jpg", "assets/hero/fly-aot-02.jpg"
   ];
   var burstEls = $$(".hero__tiles > *");

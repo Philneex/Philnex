@@ -249,7 +249,6 @@
   </div>
   <ul class="brands__list">
     <li class="brand" data-shift="1"><span class="brand__name">Diesel</span></li>
-    <li class="brand" data-shift="-1"><span class="brand__name">Temu</span></li>
     <li class="brand" data-shift="1"><span class="brand__name">Alfric Eden</span></li>
     <li class="brand" data-shift="1"><span class="brand__name">Sang Sang</span></li>
     <li class="brand" data-shift="-1"><span class="brand__name">Tokki</span></li>
@@ -454,8 +453,10 @@
         <div class="field"><label for="name">Name</label><input type="text" id="name" name="name" required autocomplete="name"></div>
         <div class="field"><label for="email">E-Mail</label><input type="email" id="email" name="email" required autocomplete="email"></div>
         <div class="field"><label for="message">Nachricht</label><textarea id="message" name="message" rows="3" required></textarea></div>
-        <p class="form__note">Das Formular öffnet dein E-Mail-Programm mit einer vorausgefüllten Nachricht an management@philnex.com.</p>
+        <input type="text" name="_honey" class="form__hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <p class="form__note">Deine Nachricht kommt direkt bei mir an – ich melde mich so schnell wie möglich bei dir.</p>
         <button type="submit" class="btn btn--solid" data-magnetic>Nachricht senden <span class="btn__arrow">→</span></button>
+        <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
       </form>
     </div>
   </div>

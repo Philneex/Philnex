@@ -18,7 +18,11 @@
   var STR = {
     "Alle": "All", "Ansehen": "Watch", " – Video ansehen": " – watch video", "Anfrage von ": "Enquiry from ",
     "Menü öffnen": "Open menu", "Menü schließen": "Close menu",
-    "Ton einschalten": "Turn sound on", "Ton ausschalten": "Turn sound off"
+    "Ton einschalten": "Turn sound on", "Ton ausschalten": "Turn sound off",
+    "Wird gesendet …": "Sending …",
+    "Danke! Deine Nachricht ist angekommen – ich melde mich bald bei dir.": "Thank you! Your message has arrived – I’ll get back to you soon.",
+    "Das hat leider nicht geklappt.": "Sorry, that didn’t work.",
+    "Schreib mir stattdessen direkt per E-Mail.": "Email me directly instead."
   };
   window.PHILNEX_T = function (s) { return lang === "en" && STR[s] !== undefined ? STR[s] : s; };
 
@@ -138,7 +142,6 @@
       "art-of-techno-01": ["Art of Techno Brand Campaign", "Vertical clip for Art of Techno – shot on an escalator with a fisheye lens and cut to the rhythm, with the collection’s prints in focus."],
       "calvin-klein-01": [null, "Spec campaign for Calvin Klein – independently conceived and produced to show how I would work with an established brand. Not an official collaboration."],
       "calvin-klein-02": [null, "The second part of the Calvin Klein spec campaign – storytelling across several scenes with a consistent look. Independent concept, not an official collaboration."],
-      "temu-03": ["Temu Brand Campaign", "A clip from the Temu campaign – focused on authenticity on camera rather than a classic ad look."],
       "sang-sang-01": ["Sang Sang – Food Vlog", "Food vlog content from Sang Sang in Vienna – from ordering to the first bite, shot and edited by me."],
       "tokki-01": ["Tokki – Food Vlog", "Food vlog from Tokki – relatable storytelling with a strong hook and plenty of personality on camera."],
       "salmon-dill-01": ["Salmon in Dill Sauce by Phil – Cooking Video", "My own cooking format: salmon in dill sauce – from prep to plating, told in calm, mouth-watering shots."],
@@ -166,7 +169,7 @@
   html(".contact__list .label", ["Instagram", "TikTok", "Email", "Location"]);
   html(".contact__list p", ["Vienna, Austria"]);
   html(".field label", ["Name", "Email", "Message"]);
-  html(".form__note", ["The form opens your email app with a pre-filled message to management@philnex.com."]);
+  html(".form__note", ["Your message comes straight to me – I’ll get back to you as soon as possible."]);
   html(".form .btn", ['Send message <span class="btn__arrow">→</span>']);
 
   /* footer */

@@ -408,7 +408,6 @@ html.js:not(.reduce) .about__lead .w { opacity: .16; }
 .panel__art { position: relative; flex: 1; min-height: 0; margin: 0 clamp(1.4rem, 2.8vw, 2.6rem) clamp(1.4rem, 2.8vw, 2.6rem); border-radius: var(--r-media); overflow: hidden; }
 .art { position: absolute; inset: -6%; display: block; will-change: transform; background: var(--paper-2) center / cover no-repeat; }
 .art::after, .art svg { display: none; }
-.art--glass { background-image: url("../assets/proyectos/temu-markenkampagne-03-poster.jpg"); }
 .art--light { background-image: url("../assets/proyectos/diesel-markenkampagne-01-poster.jpg"); }
 .art--chrome { background-image: url("../assets/aftertaste/poster.jpg"); }
 .art--velvet { background-image: url("../assets/proyectos/calvin-klein-markenkampagne-01-poster.jpg"); }
@@ -780,3 +779,14 @@ html.reduce .snap__steam path { animation: none; }
 .nav.is-light .lang-switch button.is-active { background: var(--cream); color: var(--ink); }
 .nav__brand { margin-right: auto; }
 @media (min-width: 900px) { .nav__brand { margin-right: 0; } .lang-switch { margin-left: -.6rem; } }
+
+/* ---- Contact form: direct sending states ---- */
+.form__hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.form { position: relative; }
+.form__status { min-height: 1.4em; font: 400 .95rem/1.5 var(--sans); color: var(--ink-2); }
+.form__status:empty { display: none; }
+.form.is-sending .btn { opacity: .6; cursor: progress; }
+.form.is-sent .form__status { color: var(--forest); font-weight: 500; }
+.form.is-sent .form__status::before { content: "✓ "; }
+.form.is-error .form__status { color: #B3261E; }
+.form.is-error .form__status a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
