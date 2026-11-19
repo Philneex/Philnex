@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Phil — Content Creator &amp; Video Editor</title>
 <meta name="description" content="Phil ist Content Creator &amp; Video Editor aus Wien. 5 Jahre Erfahrung mit Hooks, Storytelling und Video-Content für Marken auf Instagram &amp; TikTok.">
-<meta name="theme-color" content="#111813">
+<meta name="theme-color" content="#F4EFE6">
 <meta property="og:title" content="Phil — Content Creator & Video Editor">
 <meta property="og:description" content="Content Creator &amp; Video Editor aus Wien. Hooks, Storytelling und Video-Content, der hängen bleibt.">
 <meta property="og:type" content="website">
@@ -16,7 +16,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@1,9..144,400..700,100,1&family=Instrument+Serif:ital@0;1&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -29,6 +29,7 @@
 
 <div class="grain" aria-hidden="true"></div>
 <div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__label" id="cursorLabel"></span></div>
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
 <div class="progress" id="progress" aria-hidden="true"></div>
 
 <!-- Navigation -->
@@ -41,6 +42,7 @@
     <li><a href="#projekte">Projekte</a></li>
     <li><a href="#kontakt">Kontakt</a></li>
   </ul>
+  <div class="lang-switch" role="group" aria-label="Sprache / Language"><button type="button" data-lang="de" aria-pressed="true">DE</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
   <a class="nav__cta" href="#kontakt" data-magnetic>Zusammenarbeiten</a>
   <button class="nav__toggle" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menü öffnen">
     <span></span><span></span>
@@ -69,15 +71,26 @@
 
   <p class="hero__eyebrow label reveal-hero">Content Creator · Video Editor · Wien</p>
 
-  <div class="hero__photo" id="heroPhoto">
+  <div class="hero__photo" id="heroPhoto" data-cursor="Klick mich">
     <div class="hero__orbit" aria-hidden="true">
       <i class="o o1"></i><i class="o o2"><b></b></i><i class="o o3"></i>
     </div>
     <div class="hero__photo-in" data-speed="-.05">
-      <img src="assets/perfil/phil-hero.jpg" alt="Portrait von Phil" width="1126" height="1397" fetchpriority="high">
+      <img class="head" src="assets/perfil/phil-puppet.webp" alt="Portrait von Phil" width="1175" height="1338" fetchpriority="high">
+      <i class="cav" aria-hidden="true"></i>
+      <img class="jaw" src="assets/perfil/phil-puppet.webp" alt="" aria-hidden="true">
     </div>
   </div>
   <span class="hero__tag reveal-hero">Wien, AT</span>
+
+  <div class="hero__tiles" aria-hidden="true">
+    <span class="tile tile--a"><img src="assets/hero/fly-diesel-01.jpg" alt="" loading="eager"></span>
+    <span class="tile tile--b"><img src="assets/hero/fly-ck-02.jpg" alt=""></span>
+    <span class="tile tile--c"><img src="assets/hero/fly-aftertaste-01.jpg" alt=""></span>
+    <span class="tile tile--d"><img src="assets/proyectos/salmon-dill-kochvideo-01-poster.jpg" alt=""></span>
+    <span class="tile tile--e"><img src="assets/proyectos/sang-sang-food-vlogging-01-poster.jpg" alt=""></span>
+    <i class="chip chip--orange"></i><i class="chip chip--purple"></i><i class="chip chip--forest"></i>
+  </div>
 
   <canvas class="sculpt sculpt--hero" data-shape="0" data-pal="0" aria-hidden="true"></canvas>
 
@@ -99,7 +112,7 @@
 </section>
 
 <!-- ============ MARQUEE ============ -->
-<div class="band" data-theme="orange" aria-hidden="true">
+<div class="band" data-theme="dark" aria-hidden="true">
   <div class="band__track" data-dir="-1">
     <div class="band__group">
       <span class="band__item">Content Creation</span><span class="band__star">✦</span>
@@ -172,6 +185,37 @@
   </div>
 </section>
 
+<!-- ============ CONTENT IN 60 SEKUNDEN ============ -->
+<section class="proof" id="content-60" data-theme="dark" data-menu="about" style="--sec-bg:#111813">
+  <svg class="curve curve--a" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true"><path d="M0 140 L0 96 C240 20 520 0 820 40 C1060 72 1260 96 1440 54 L1440 140Z"/></svg>
+  <div class="container proof__grid">
+    <div class="proof__text">
+      <p class="label reveal">Content in 60 Sekunden</p>
+      <h2 class="h2 split">Wie beweise ich in 60 Sekunden, dass ich guten <em>Content</em> produziere?</h2>
+      <p class="proof__p reveal">Weniger Vorstellung, mehr Beweis: eine Minute, die zeigt, wie Hook, Szenen und Schnitt zu Content werden, der wirklich etwas auslöst.</p>
+    </div>
+    <div class="proof__phone reveal">
+      <div class="phone phone--static is-on">
+        <i class="phone__btn phone__btn--power"></i>
+        <i class="phone__btn phone__btn--v1"></i>
+        <i class="phone__btn phone__btn--v2"></i>
+        <i class="phone__btn phone__btn--v3"></i>
+        <div class="phone__body">
+          <div class="phone__screen">
+            <i class="phone__island"></i>
+            <video id="proofVideo" src="assets/perfil/content-in-60-sekunden.mp4" poster="assets/perfil/content-in-60-sekunden-poster.jpg" width="720" height="1280" muted loop playsinline webkit-playsinline preload="metadata" aria-label="Video: Wie beweise ich in 60 Sekunden, dass ich guten Content produziere?"></video>
+            <i class="phone__sheen"></i>
+            <button class="phone__mute" id="proofMute" type="button" aria-label="Ton einschalten" aria-pressed="false">
+                          <svg class="i-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.42.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06a8.99 8.99 0 0 0 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
+                          <svg class="i-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.26 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+                        </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ REICHWEITE / ERFOLGE ============ -->
 <section class="stats" id="erfolge" data-theme="dark" data-menu="about2" style="--sec-bg:#111813">
   <svg class="curve curve--c" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true"><path d="M0 140 L0 34 C260 120 520 130 760 74 C1000 18 1220 18 1440 78 L1440 140Z"/></svg>
@@ -207,11 +251,12 @@
     <li class="brand" data-shift="1"><span class="brand__name">Diesel</span></li>
     <li class="brand" data-shift="-1"><span class="brand__name">Temu</span></li>
     <li class="brand" data-shift="1"><span class="brand__name">Alfric Eden</span></li>
-    <li class="brand" data-shift="-1"><span class="brand__name">Kuga Koffee</span></li>
     <li class="brand" data-shift="1"><span class="brand__name">Sang Sang</span></li>
     <li class="brand" data-shift="-1"><span class="brand__name">Tokki</span></li>
+    <li class="brand" data-shift="1"><span class="brand__name">Art of Techno</span></li>
     <li class="brand brand--soft" data-shift="1"><span class="brand__name">Musikpromotion<br>für Labels weltweit</span></li>
   </ul>
+  <div class="peek" id="peek" aria-hidden="true"><video muted loop playsinline preload="none"></video></div>
 </section>
 
 <!-- ============ LEISTUNGEN (horizontal) ============ -->
@@ -231,7 +276,13 @@
           <h3>Content Creation</h3>
           <p>Von der Idee bis zum fertigen Clip — Konzept, Dreh und Umsetzung aus einer Hand.</p>
         </div>
-        <div class="panel__art"><i class="art art--glass"></i></div>
+        <div class="panel__art">
+          <div class="art scene scene--cam" aria-hidden="true">
+            <img src="assets/leistungen/diesel-content-creation.jpg" alt="" loading="lazy">
+            <span class="vf"><i class="vf__c vf__c--tl"></i><i class="vf__c vf__c--tr"></i><i class="vf__c vf__c--bl"></i><i class="vf__c vf__c--br"></i><i class="vf__x"></i>
+              <b class="vf__rec">REC</b><b class="vf__tc" data-tc>00:00:00:00</b><b class="vf__meta">4K · 25 fps · 9:16</b></span>
+          </div>
+        </div>
       </article>
 
       <article class="panel panel--orange">
@@ -239,7 +290,16 @@
           <h3>Hooks &amp; Storytelling</h3>
           <p>Die ersten drei Sekunden entscheiden. Ich baue Hooks, die zum Weiterschauen zwingen.</p>
         </div>
-        <div class="panel__art"><i class="art art--light"></i></div>
+        <div class="panel__art">
+          <div class="art scene scene--hook" aria-hidden="true">
+            <div class="story">
+              <img class="story__img" src="assets/leistungen/leistung-hooks.jpg" alt="" loading="lazy">
+              <span class="story__bars"><i></i><i></i><i></i></span>
+              <span class="story__t">0:03</span>
+              <span class="story__swipe"><i></i></span>
+            </div>
+          </div>
+        </div>
       </article>
 
       <article class="panel panel--cream">
@@ -247,7 +307,18 @@
           <h3>Video Editing</h3>
           <p>Schnitt, Pacing und Sounddesign mit Adobe Premiere Pro, Adobe Audition &amp; Canva — sauber, rhythmisch, plattformgerecht.</p>
         </div>
-        <div class="panel__art"><i class="art art--chrome"></i></div>
+        <div class="panel__art">
+          <div class="art scene scene--edit" aria-hidden="true">
+            <div class="tl">
+              <div class="tl__ruler"></div>
+              <div class="tl__track tl__track--v2"><i style="--s:8;--w:22"></i><i style="--s:58;--w:16"></i></div>
+              <div class="tl__track tl__track--v1"><i style="--s:0;--w:26"></i><i style="--s:27;--w:19"></i><i style="--s:47;--w:31"></i><i style="--s:79;--w:21"></i></div>
+              <div class="tl__track tl__track--a1"><i style="--s:0;--w:100"></i></div>
+              <div class="tl__track tl__track--a2"><i style="--s:12;--w:44"></i><i style="--s:62;--w:30"></i></div>
+              <i class="tl__head"></i>
+            </div>
+          </div>
+        </div>
       </article>
 
       <article class="panel panel--moss">
@@ -255,7 +326,17 @@
           <h3>Instagram &amp; TikTok Growth</h3>
           <p>Strategien, die Reichweite und Community nachhaltig wachsen lassen.</p>
         </div>
-        <div class="panel__art"><i class="art art--velvet"></i></div>
+        <div class="panel__art">
+          <div class="art scene scene--grow" aria-hidden="true">
+            <svg class="chart" viewBox="0 0 400 300" preserveAspectRatio="none">
+              <g class="chart__grid"><line x1="0" y1="75" x2="400" y2="75"/><line x1="0" y1="150" x2="400" y2="150"/><line x1="0" y1="225" x2="400" y2="225"/></g>
+              <path class="chart__area" d="M0 270 C60 262 90 250 130 236 C175 220 200 226 240 190 C285 150 320 120 400 34 L400 300 L0 300Z"/>
+              <path class="chart__line" pathLength="1" d="M0 270 C60 262 90 250 130 236 C175 220 200 226 240 190 C285 150 320 120 400 34"/>
+            </svg>
+            <i class="chart__dot"></i>
+            <span class="chart__chip">↑</span>
+          </div>
+        </div>
       </article>
 
       <article class="panel panel--coal">
@@ -263,7 +344,17 @@
           <h3>Engagement-Strategien</h3>
           <p>Content, der nicht nur angeschaut, sondern kommentiert und geteilt wird.</p>
         </div>
-        <div class="panel__art"><i class="art art--stone"></i></div>
+        <div class="panel__art">
+          <div class="art scene scene--talk" aria-hidden="true">
+            <div class="talk">
+              <span class="bub" style="--i:0"><i class="bub__av"></i><i class="bub__l"></i><i class="bub__l s"></i></span>
+              <span class="bub bub--r" style="--i:1"><i class="bub__av"></i><i class="bub__l"></i></span>
+              <span class="bub" style="--i:2"><i class="bub__av"></i><i class="bub__l"></i><i class="bub__l s"></i></span>
+              <span class="bub bub--r" style="--i:3"><i class="bub__av"></i><i class="bub__l s"></i></span>
+            </div>
+            <span class="hearts"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.6 1.2 5.3 3.1 1.7-1.9 3.2-3.1 5.3-3.1 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.6 1.2 5.3 3.1 1.7-1.9 3.2-3.1 5.3-3.1 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.6 1.2 5.3 3.1 1.7-1.9 3.2-3.1 5.3-3.1 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z"/></svg></span>
+          </div>
+        </div>
       </article>
 
       <article class="panel panel--forest">
@@ -272,20 +363,14 @@
           <p>Nahbarer Restaurant-Content, der Lust auf mehr macht — erprobt in Wiens Gastro-Szene.</p>
         </div>
         <div class="panel__art">
-          <i class="art art--plants">
-            <svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-              <path d="M150 420 C150 300 150 220 150 120" stroke="#0f1a0d" stroke-width="3" fill="none"/>
-              <path d="M150 330 C60 310 20 240 40 170 C110 190 150 250 150 330Z" fill="#2c4a22"/>
-              <path d="M150 330 C240 300 285 230 262 160 C190 185 150 250 150 330Z" fill="#3a5f2c"/>
-              <path d="M150 250 C80 220 60 150 85 90 C140 120 155 180 150 250Z" fill="#4c7a38"/>
-              <path d="M150 240 C220 210 245 140 222 80 C168 112 148 170 150 240Z" fill="#244020"/>
-              <path d="M150 160 C110 130 112 80 140 40 C170 80 168 120 150 160Z" fill="#5f8e45"/>
-              <g stroke="#0d170b" stroke-width="2" fill="none" opacity=".6">
-                <path d="M150 330 C100 290 70 240 42 172"/><path d="M150 330 C200 290 235 240 260 162"/>
-                <path d="M150 250 C110 210 95 160 86 94"/><path d="M150 240 C190 200 210 150 222 84"/>
-              </g>
-            </svg>
-          </i>
+          <div class="art scene scene--food" aria-hidden="true">
+            <div class="snap">
+              <img src="assets/leistungen/leistung-food.jpg" alt="" loading="lazy">
+              <svg class="snap__steam" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M79 53 C77 50 81 47 79 44 C77 41 81 38 79 35"/><path d="M83 52 C81 49 85 46 83 43 C81 40 85 37 83 34"/><path d="M87 54 C85 51 89 48 87 45 C85 42 89 39 87 36"/>
+              </svg>
+            </div>
+          </div>
         </div>
       </article>
 
@@ -295,87 +380,6 @@
       </div>
 
     </div>
-  </div>
-</section>
-
-<!-- ============ THE AFTERTASTE (Featured Creative Project) ============ -->
-<section class="after" id="aftertaste" data-theme="dark" style="--sec-bg:#111813">
-  <div class="after__bg" aria-hidden="true">
-    <svg class="after__swoosh" viewBox="0 0 900 520" preserveAspectRatio="none"><path d="M0 150 C140 60 300 40 450 110 C590 175 700 150 900 30 L900 330 C700 450 590 470 450 400 C300 330 140 350 0 440Z"/></svg>
-  </div>
-
-  <div class="container after__head">
-    <p class="after__meta reveal"><span>Eigenständiges Kreativprojekt</span><span>Cinematic Satire</span><span>2:27 Min.</span></p>
-    <h2 class="after__title" aria-label="THE AFTERTASTE">
-      <span class="mask"><span class="after__the">The</span></span>
-      <span class="mask"><span class="after__word">Aftertaste</span></span>
-    </h2>
-    <p class="after__lede reveal">Manche Erfahrungen hinterlassen einen <em>bitteren</em> Nachgeschmack.</p>
-  </div>
-
-  <div class="container after__stage">
-    <div class="after__flank after__flank--l" aria-hidden="true">
-      <div class="after__ph reveal after__ph--arch"><img data-speed="-.07" src="assets/aftertaste/mood-whisk.jpg" alt="" width="350" height="380" loading="lazy"></div>
-      <div class="after__ph reveal after__ph--pebble"><img data-speed="-.12" src="assets/aftertaste/mood-bowl.jpg" alt="" width="334" height="206" loading="lazy"></div>
-    </div>
-
-    <figure class="after__film reveal" id="afterFilm">
-      <span class="after__sun" aria-hidden="true"></span>
-      <span class="after__arch" aria-hidden="true"></span>
-      <div class="after__frame">
-        <video id="afterVideo" src="assets/aftertaste/the-aftertaste.mp4" poster="assets/aftertaste/poster.jpg" preload="none" playsinline webkit-playsinline controlslist="nodownload" width="720" height="1280"></video>
-        <button class="after__play" id="afterPlay" type="button" aria-label="THE AFTERTASTE abspielen (2:27 Min., mit Ton)" data-magnetic>
-          <span class="after__play-ico" aria-hidden="true"></span>
-          <span class="after__play-t">2:27 Min.</span>
-        </button>
-      </div>
-    </figure>
-
-    <div class="after__flank after__flank--r" aria-hidden="true">
-      <div class="after__ph reveal after__ph--tall"><img data-speed="-.05" src="assets/aftertaste/mood-steam.jpg" alt="" width="304" height="378" loading="lazy"></div>
-      <div class="after__ph reveal after__ph--cut"><img data-speed="-.14" src="assets/aftertaste/mood-cocktail.jpg" alt="" width="276" height="378" loading="lazy"></div>
-    </div>
-  </div>
-
-  <div class="container after__scenes">
-
-    <article class="scene scene--a">
-      <div class="scene__txt">
-        <p class="label reveal">Das Konzept</p>
-        <h3 class="scene__h reveal">Aus Enttäuschung wird eine <em>kreative Idee.</em></h3>
-        <p class="scene__p reveal">Eine kurzfristig zurückgezogene Jobzusage wird zum Ausgangspunkt eines satirischen Kurzfilms. THE AFTERTASTE übersetzt eine persönliche Erfahrung in eine visuelle Geschichte über gebrochene Versprechen, Erwartungen und den schönen Schein.</p>
-      </div>
-      <div class="scene__art scene__art--a" aria-hidden="true">
-        <div class="after__ph reveal after__ph--round"><img data-speed="-.06" src="assets/aftertaste/mood-powder.jpg" alt="" width="258" height="378" loading="lazy"></div>
-        <div class="after__ph reveal after__ph--water"><img data-speed="-.13" src="assets/aftertaste/mood-water.jpg" alt="" width="158" height="338" loading="lazy"></div>
-      </div>
-    </article>
-
-    <article class="scene scene--b">
-      <div class="scene__art scene__art--b" aria-hidden="true">
-        <div class="after__ph reveal after__ph--posters"><img data-speed="-.04" src="assets/aftertaste/mood-posters.jpg" alt="" width="436" height="260" loading="lazy"></div>
-        <div class="after__ph reveal after__ph--tiles"><img data-speed="-.1" src="assets/aftertaste/mood-tiles.jpg" alt="" width="304" height="334" loading="lazy"></div>
-      </div>
-      <div class="scene__txt">
-        <p class="label reveal">Die visuelle Welt</p>
-        <h3 class="scene__h reveal">Ästhetisch. Bitter. <em>Bewusst irritierend.</em></h3>
-        <p class="scene__p reveal">Die Bildsprache verbindet hochwertige Werbeästhetik mit schwarzem Humor und symbolischen Details. Matcha wird dabei zum visuellen Leitmotiv und zum Sinnbild eines bitteren Nachgeschmacks.</p>
-      </div>
-    </article>
-
-    <article class="scene scene--c">
-      <div class="scene__txt">
-        <p class="label reveal">Mein Beitrag</p>
-        <h3 class="scene__h reveal">Von der ersten Idee bis zum <em>finalen Schnitt.</em></h3>
-        <ul class="after__roles reveal"><li>Konzeptentwicklung</li><li>Creative Direction</li><li>Art Direction</li><li>Videoproduktion</li><li>Schnitt</li><li>Sounddesign</li></ul>
-        <p class="scene__p scene__p--close reveal">Aus einer Erfahrung, die ich nicht kontrollieren konnte, wurde eine Geschichte, die ich selbst inszeniert habe.</p>
-      </div>
-      <div class="scene__art scene__art--c" aria-hidden="true">
-        <div class="after__ph reveal after__ph--still"><img data-speed="-.05" src="assets/aftertaste/still-cocktail.jpg" alt="" width="540" height="960" loading="lazy"></div>
-        <div class="after__ph reveal after__ph--glass"><img data-speed="-.12" src="assets/aftertaste/mood-glass.jpg" alt="" width="192" height="332" loading="lazy"></div>
-      </div>
-    </article>
-
   </div>
 </section>
 
@@ -474,7 +478,7 @@
 </footer>
 
 <script src="js/projects-data.js"></script>
-<script src="js/sculpture.js"></script>
+<script src="js/i18n.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
