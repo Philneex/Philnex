@@ -681,7 +681,7 @@ if (proofMute && proofVideo) {
   var burstEls = $$(".hero__tiles > *");
 
   /* the jaw drops ("talks") and a project still flies out — continuously while the hero is on screen */
-  var jaw = $(".jaw"), tilesBox = $(".hero__tiles"), heroOn = true, flyN = 0;
+  var jaw = $(".jaw"), tilesBox = $(".hero__tiles"), heroOn = true, flyN = 0, lastAng = -999;
   function talk() {
     if (!jaw) return;
     jaw.classList.remove("is-talking"); void jaw.offsetWidth; jaw.classList.add("is-talking");
@@ -691,8 +691,14 @@ if (proofMute && proofVideo) {
     var p = { poster: FLY[flyN++ % FLY.length] };
     var x0 = heroPhoto.offsetLeft + heroPhoto.offsetWidth * MOUTH.x, y0 = heroPhoto.offsetTop + heroPhoto.offsetHeight * MOUTH.y;
     var mobile = vw < 860, w = mobile ? 54 + Math.random() * 24 : 70 + Math.random() * 50;
-    /* fan out sideways and upwards, alternating left / right */
-    var side = flyN % 2 ? -1 : 1, ang = (side < 0 ? 180 : 0) + side * -(12 + Math.random() * 58);
+    /* random side and random angle every time (12–68° above horizontal, so nothing
+       flies straight up across Phil's face), never twice in a row into the same spot */
+    var ang;
+    do {
+      var a = 12 + Math.random() * 56;
+      ang = Math.random() < 0.5 ? 180 + a : 360 - a;
+    } while (Math.abs(ang - lastAng) < 25);
+    lastAng = ang;
     var dist = (mobile ? 0.36 : 0.3) * vw + Math.random() * (mobile ? 0.12 : 0.16) * vw;
     var rad = ang * Math.PI / 180;
     var f = document.createElement("span");
