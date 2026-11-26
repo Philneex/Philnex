@@ -108,7 +108,7 @@
   html(".stats__head .label", ["Reach"]);
   html(".stats__head .h2", ['Numbers <i class="t-sans">that speak</i> <em>for themselves.</em>']);
   html(".stat__l", ["Followers on TikTok", "Followers on Instagram", "Views on individual videos"]);
-  $$(".stat__n b[data-suffix]").forEach(function (b) { b.setAttribute("data-suffix", "M+"); b.textContent = "1M+"; });
+  $$('.stat__n b[data-suffix=" Mio.+"]').forEach(function (b) { b.setAttribute("data-suffix", "M+"); b.textContent = "1M+"; });
 
   /* brands */
   html(".brands__head .label", ["Brands &amp; Partners"]);
@@ -193,10 +193,10 @@
   html(".contact__list .label", ["Instagram", "TikTok", "Email", "Location"]);
   html(".contact__list p", ["Vienna, Austria"]);
   html(".field label", ["Name", "Email", "Message"]);
-  html(".form__note", ["Your message comes straight to me – I’ll get back to you as soon as possible."]);
+  html(".form__note", ['Your message comes straight to me – I’ll get back to you as soon as possible. How your details are processed is explained in the <a href="datenschutz/">privacy policy</a>.']);
   html(".form .btn", ['Send message <span class="btn__arrow">→</span>']);
 
   /* footer */
-  html(".footer__links a", ["Instagram", "TikTok", "Email"]);
+  html(".footer__links a", ["Instagram", "TikTok", "Email", "Privacy"]);
   html(".footer__copy", ['<span>© <span id="year"></span> Phil. All rights reserved.</span> <span>Vienna, Austria</span>']);
 })();

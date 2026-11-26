@@ -14,9 +14,7 @@
   document.documentElement.classList.add('js');
   setTimeout(function () { if (!window.__ready) document.documentElement.classList.add('force-show'); }, 7000);
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/Jost-Variable.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -231,7 +229,7 @@
       <p class="stat__l reveal">Follower auf TikTok</p>
     </div>
     <div class="stat" data-shift="-1">
-      <span class="stat__n"><b data-count="10400">10.400</b></span>
+      <span class="stat__n"><b data-count="9800" data-suffix="+">9.800+</b></span>
       <p class="stat__l reveal">Follower auf Instagram</p>
     </div>
     <div class="stat" data-shift="1">
@@ -510,7 +508,7 @@
         <div class="field"><label for="email">E-Mail</label><input type="email" id="email" name="email" required autocomplete="email"></div>
         <div class="field"><label for="message">Nachricht</label><textarea id="message" name="message" rows="3" required></textarea></div>
         <input type="text" name="_honey" class="form__hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <p class="form__note">Deine Nachricht kommt direkt bei mir an – ich melde mich so schnell wie möglich bei dir.</p>
+        <p class="form__note">Deine Nachricht kommt direkt bei mir an – ich melde mich so schnell wie möglich bei dir. Wie deine Angaben verarbeitet werden, steht in der <a href="datenschutz/">Datenschutzerklärung</a>.</p>
         <button type="submit" class="btn btn--solid" data-magnetic>Nachricht senden <span class="btn__arrow">→</span></button>
         <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
       </form>
@@ -529,6 +527,7 @@
       <a href="https://www.instagram.com/philnex" target="_blank" rel="noopener">Instagram</a>
       <a href="https://www.tiktok.com/@philneex" target="_blank" rel="noopener">TikTok</a>
       <a href="mailto:management@philnex.com">E-Mail</a>
+      <a href="datenschutz/">Datenschutz</a>
     </p>
     <p class="footer__copy"><span>© <span id="year"></span> Phil. Alle Rechte vorbehalten.</span> <span>Wien, Österreich</span></p>
   </div>

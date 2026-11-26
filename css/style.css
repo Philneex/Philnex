@@ -1,8 +1,21 @@
 /* ==========================================================================
    PHILNEX — Editorial Paper  (see DESIGN.md)
-   Warm paper ground · Instrument Serif speaks · Jost explains ·
+   Warm paper ground · Jost speaks and explains ·
    condensed coloured caps for the one loud moment
    ========================================================================== */
+
+/* Self-hosted fonts (SIL Open Font License, see assets/fonts/OFL-*.txt).
+   No requests to Google: visitors' IP addresses are not sent to third parties. */
+@font-face {
+  font-family: "Jost";
+  src: url("../assets/fonts/Jost-Variable.ttf") format("truetype");
+  font-weight: 100 900; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Big Shoulders Display";
+  src: url("../assets/fonts/BigShouldersDisplay-Variable.ttf") format("truetype");
+  font-weight: 100 900; font-style: normal; font-display: swap;
+}
 
 :root {
   --paper: #F4EFE6;
@@ -817,3 +830,30 @@ html.reduce .snap__steam path { animation: none; }
   .ugc__grid { grid-template-columns: 1.1fr .9fr; }
   .ugc__media .phone--static { width: min(330px, calc((78svh - 22px) * .5625)); }
 }
+
+/* ==========================================================================
+   Legal pages (Datenschutz / Impressum)
+   ========================================================================== */
+html[lang="de"] [data-l="en"], html[lang="en"] [data-l="de"] { display: none !important; }
+.legal-page { background: var(--paper); }
+.legal-page .nav { gap: 1rem; }
+.legal-page .nav__brand { margin-right: auto; }
+.legal__back { padding: .7em 1.3em; border: 1px solid currentColor; border-radius: 999px; font: 500 .92rem/1 var(--sans); transition: background .3s, color .3s; }
+.legal__back:hover { background: var(--ink); color: var(--paper); }
+.legal { max-width: 860px; padding-top: clamp(8rem, 14vw, 11rem); padding-bottom: clamp(4rem, 8vw, 7rem); }
+.legal .h2 { font-size: clamp(2.6rem, 6vw, 4.6rem); margin-bottom: 1.6rem; hyphens: manual; }
+.legal__lead { font-size: 1.12em; color: var(--ink); max-width: 46rem; margin-bottom: 1rem; }
+.legal h2 { font: 500 1.2rem/1.3 var(--sans); margin: 2.6rem 0 .8rem; padding-top: 1.4rem; border-top: 1px solid var(--rule); }
+.legal p { color: var(--ink-2); max-width: 46rem; margin-bottom: .9rem; }
+.legal p strong { color: var(--ink); font-weight: 500; }
+.legal a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.legal a:hover { color: var(--orange); }
+.legal__date { margin-top: 2.6rem; font-size: .9rem; }
+.legal-foot { background: var(--ink); color: var(--cream); padding: 1.6rem var(--gutter); }
+.legal-foot__row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem 2rem; font: 400 .9rem/1.6 var(--sans); }
+.legal-foot__links { display: flex; flex-wrap: wrap; gap: 1.6rem; }
+.legal-foot__copy { display: flex; gap: 1.2rem; color: rgba(220, 213, 198, .7); }
+.legal-foot a:hover { color: var(--orange); }
+.legal-page .cursor, .legal-page .cursor-dot { display: none; }
+.form__note a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.form__note a:hover { color: var(--orange); }
