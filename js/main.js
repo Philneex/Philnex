@@ -106,12 +106,13 @@
     entries.forEach(function (e) {
       if (!e.isIntersecting) return;
       countIO.unobserve(e.target);
-      var el = e.target, target = parseFloat(el.dataset.count), suffix = el.dataset.suffix || "";
-      if (reduce) { el.textContent = target.toLocaleString(LOCALE) + suffix; return; }
+      var el = e.target, target = parseFloat(el.dataset.count);
+      el.__counted = true;
+      if (reduce) { el.textContent = target.toLocaleString(LOCALE) + (el.dataset.suffix || ""); return; }
       var start = null, dur = 2200;
       (function tick(ts) {
         if (!start) start = ts;
-        var p = clamp((ts - start) / dur);
+        var p = clamp((ts - start) / dur), suffix = el.dataset.suffix || "";
         el.textContent = Math.floor(easeOut(p) * target).toLocaleString(LOCALE) + suffix;
         if (p < 1) requestAnimationFrame(tick); else el.textContent = target.toLocaleString(LOCALE) + suffix;
       })(performance.now());
@@ -789,6 +790,34 @@ if (proofMute && proofVideo) {
   window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(layoutAll, 120); });
   window.addEventListener("load", layoutAll);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(layoutAll);
+
+  /* ------------------------------------------------------------------
+     Live language switch (js/i18n.js swaps the texts without a reload):
+     rebuild everything main.js generated from text
+     ------------------------------------------------------------------ */
+  window.addEventListener("philnex:lang", function () {
+    LOCALE = window.PHILNEX_LANG === "en" ? "en-US" : "de-DE";
+    currentCat = T("Alle");
+    renderFilters();
+    renderProjects();
+    $$("[data-count]").forEach(function (el) {
+      var sfx = el.dataset.suffix || "";
+      if (el.__counted || reduce) el.textContent = parseFloat(el.dataset.count).toLocaleString(LOCALE) + sfx;
+      else el.textContent = "0" + sfx; /* still counts up when it scrolls into view */
+    });
+    var yr = $("#year");
+    if (yr) yr.textContent = new Date().getFullYear();
+    if (lead) {
+      /* unwrap the old word spans before wrapping the new text */
+      lead.innerHTML = lead.innerHTML.replace(/<span class="w"[^>]*>([^<]*)<\/span>/g, "$1");
+      leadWords = wrapWords(lead, "w", false);
+      leadWords.forEach(function (w) { w._o = null; });
+      updateLead();
+    }
+    if (menuBtn) menuBtn.setAttribute("aria-label", root.classList.contains("menu-open") ? T("Menü schließen") : T("Menü öffnen"));
+    layoutBands();
+    dirty = true;
+  });
 
   renderFilters();
   renderProjects();

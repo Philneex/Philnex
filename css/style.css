@@ -857,3 +857,8 @@ html[lang="de"] [data-l="en"], html[lang="en"] [data-l="de"] { display: none !im
 .legal-page .cursor, .legal-page .cursor-dot { display: none; }
 .form__note a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 .form__note a:hover { color: var(--orange); }
+
+/* ---- Live language switch: a short, soft cross-fade instead of a page reload ---- */
+main, .footer, .nav__links, .nav__cta, .legal-foot { transition: opacity .18s ease; }
+html.is-lang-switching main, html.is-lang-switching .footer, html.is-lang-switching .nav__links,
+html.is-lang-switching .nav__cta, html.is-lang-switching .legal-foot { opacity: 0; }
