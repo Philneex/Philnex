@@ -589,6 +589,36 @@ if (proofMute && proofVideo) {
   }
 
   /* ------------------------------------------------------------------
+     UGC section: candle clip plays muted while visible; sound toggle;
+     "UGC-Projekte ansehen" jumps to the projects with the UGC filter on
+     ------------------------------------------------------------------ */
+  var ugcVideo = document.getElementById("ugcVideo"), ugcMute = document.getElementById("ugcMute");
+  if (ugcVideo) {
+    ugcVideo.defaultMuted = true; ugcVideo.muted = true;
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { var pr = ugcVideo.play(); if (pr && pr.catch) pr.catch(function () {}); }
+        else ugcVideo.pause();
+      });
+    }, { threshold: 0.35 }).observe(ugcVideo);
+  }
+  if (ugcMute && ugcVideo) ugcMute.addEventListener("click", function () {
+    ugcVideo.muted = !ugcVideo.muted;
+    var on = !ugcVideo.muted;
+    ugcMute.classList.toggle("is-unmuted", on);
+    ugcMute.setAttribute("aria-pressed", String(on));
+    ugcMute.setAttribute("aria-label", on ? T("Ton ausschalten") : T("Ton einschalten"));
+    if (ugcVideo.paused) ugcVideo.play().catch(function () {});
+  });
+  var ugcShow = document.getElementById("ugcShowProjects");
+  if (ugcShow) ugcShow.addEventListener("click", function () {
+    var all = document.querySelectorAll(".filter");
+    for (var i = 0; i < all.length; i++) {
+      if (all[i].textContent.trim() === "UGC") { if (!all[i].classList.contains("is-active")) all[i].click(); break; }
+    }
+  });
+
+  /* ------------------------------------------------------------------
      Contact form -> sent directly via FormSubmit (no account needed;
      the first message ever triggers a one-time activation mail to
      management@philnex.com). If sending fails, offer the mailto link.
@@ -636,14 +666,18 @@ if (proofMute && proofVideo) {
   /* hero stills fly out of Phil's mouth (puppet jaw: 32.9–67.1 % wide, from 77.2 % down) */
   var MOUTH = { x: 0.5, y: 0.79 };
   /* hand-picked strongest frames from each project video (food clips keep their posters) */
-  var FLY = [
+  /* The UGC candle is Phil's most polished piece, so roughly every second still is a candle shot */
+  var FLY_CANDLE = [1, 4, 7, 2, 8, 5, 3, 6, 9].map(function (n) { return "assets/hero/fly-candle-0" + n + ".jpg"; });
+  var FLY_OTHER = [
     "assets/hero/fly-diesel-01.jpg", "assets/hero/fly-alfric-01.jpg", "assets/proyectos/meatballs-kochvideo-01-poster.jpg",
-    "assets/hero/fly-ck-02.jpg", "assets/hero/fly-aftertaste-01.jpg",
+    "assets/hero/fly-ck-02.jpg", "assets/hero/fly-aftertaste-01.jpg", "assets/hero/fly-tortilla-01.jpg",
     "assets/hero/fly-diesel-02.jpg", "assets/proyectos/salmon-dill-kochvideo-01-poster.jpg", "assets/hero/fly-alfric-02.jpg",
     "assets/hero/fly-aot-01.jpg", "assets/hero/fly-ck-01.jpg", "assets/hero/fly-aftertaste-02.jpg", "assets/proyectos/sang-sang-food-vlogging-01-poster.jpg",
-    "assets/hero/fly-diesel-03.jpg", "assets/hero/fly-ck-03.jpg",
-    "assets/hero/fly-aot-03.jpg", "assets/proyectos/tokki-food-vlogging-01-poster.jpg", "assets/hero/fly-aot-02.jpg"
+    "assets/hero/fly-diesel-03.jpg", "assets/hero/fly-tortilla-02.jpg", "assets/hero/fly-ck-03.jpg",
+    "assets/hero/fly-aot-03.jpg", "assets/proyectos/tokki-food-vlogging-01-poster.jpg"
   ];
+  var FLY = [];
+  FLY_OTHER.forEach(function (src, i) { FLY.push(FLY_CANDLE[i % FLY_CANDLE.length], src); });
   var burstEls = $$(".hero__tiles > *");
 
   /* the jaw drops ("talks") and a project still flies out — continuously while the hero is on screen */

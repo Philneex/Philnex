@@ -6,7 +6,8 @@
  *  id           – eindeutige ID (string, keine Leerzeichen)
  *  title        – Projekttitel
  *  brand        – Marke / Kunde
- *  category     – "Markenkampagne" | "Musikpromotion" | "Food-Vlogging" | "Eigene Marke" | "Spec Campaign"
+ *  category     – "Markenkampagne" | "Musikpromotion" | "Food-Vlogging" | "Eigene Marke" | "Spec Campaign" | "UGC"
+ *                 ("UGC" = UGC-Videos; Probe-Ads ohne Auftrag tragen "Spec Ad" im Titel)
  *                 ("Spec Campaign" = eigenständig konzipiertes Konzeptprojekt ohne offiziellen Markenauftrag)
  *  description  – Kurzbeschreibung (1–2 Sätze)
  *  type         – "video" | "image"
@@ -24,6 +25,17 @@ const PROJECTS = [
     type: "video",
     src: "assets/aftertaste/the-aftertaste.mp4",
     poster: "assets/aftertaste/poster.jpg",
+    link: null
+  },
+  {
+    id: "ugc-dw-home-candle",
+    title: "DW Home Marshmallow Cherry – UGC Spec Ad",
+    brand: "DW Home (Spec)",
+    category: "UGC",
+    description: "UGC Spec Ad für die Marshmallow-Cherry-Kerze von DW Home – eigenständig konzipiert und in meinem Studio produziert: Flammen, karamellisierte Marshmallows und Kirschen erzählen den Duft. Keine offizielle Zusammenarbeit.",
+    type: "video",
+    src: "assets/ugc/dw-home-candle-ugc-spec.mp4",
+    poster: "assets/ugc/dw-home-candle-ugc-spec-poster.jpg",
     link: null
   },
   {
@@ -101,6 +113,17 @@ const PROJECTS = [
     type: "video",
     src: "assets/proyectos/tokki-food-vlogging-01.mp4",
     poster: "assets/proyectos/tokki-food-vlogging-01-poster.jpg",
+    link: null
+  },
+  {
+    id: "tortilla-01",
+    title: "Tortilla de Patata by Phil – Kochvideo",
+    brand: "Eigene Marke",
+    category: "Eigene Marke",
+    description: "Eigenes Kochformat: Tortilla de Patata – vom kurzen Dialog als Einstieg über jeden einzelnen Schritt bis zum Wenden und Anschneiden, so geschnitten, dass man direkt nachkochen kann.",
+    type: "video",
+    src: "assets/proyectos/tortilla-de-patata-kochvideo-01.mp4",
+    poster: "assets/proyectos/tortilla-de-patata-kochvideo-01-poster.jpg",
     link: null
   },
   {

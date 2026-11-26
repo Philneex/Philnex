@@ -61,12 +61,12 @@
   if (od) od.setAttribute("content", "Vienna-based content creator & video editor. Hooks, storytelling and video content that sticks.");
 
   /* navigation */
-  html(".nav__links a", ["About", "Results", "Services", "Projects", "Contact"]);
+  html(".nav__links a", ["About", "Results", "Services", "UGC", "Projects", "Contact"]);
   html(".nav__cta", ["Work with me"]);
   attr(".nav__brand", "aria-label", "PHILNEX – back to top");
   attr("#menuBtn", "aria-label", "Open menu");
   var dot = '<span class="menu__dot"></span>';
-  html(".menu__list a", [dot + "About", dot + "Results", dot + "Brands", dot + "Services", dot + "Projects", dot + "Contact"]);
+  html(".menu__list a", [dot + "About", dot + "Results", dot + "Brands", dot + "Services", dot + "UGC", dot + "Projects", dot + "Contact"]);
   html(".menu__contact", ["management@philnex.com<br>Vienna, Austria"]);
 
   /* hero */
@@ -129,6 +129,28 @@
     "Relatable restaurant content that leaves people hungry for more — tried and tested in Vienna’s food scene."
   ]);
 
+  /* UGC for brands */
+  html(".ugc__text .label", ["UGC for brands"]);
+  html(".ugc__text .h2", ["Content that doesn’t look like an <em>ad.</em>"]);
+  html(".ugc__text .lede", ["I create UGC videos for brands: authentic, vertical and built for TikTok, Instagram and ads – from the idea and the shoot in my own studio to the final edit."]);
+  html(".ugc__h", ["What you get"]);
+  html(".ugc__list li", [
+    "Fully edited vertical videos (9:16), 4:5 on request",
+    "Several hook variations per video for testing",
+    "Product shots and raw footage for your own ads",
+    "Subtitles, music and sound design",
+    "In German or English"
+  ]);
+  html(".ugc__steps li", [
+    "<b>01</b><span><strong>Briefing</strong> You tell me about the product, the audience and the goal.</span>",
+    "<b>02</b><span><strong>Concept &amp; shoot</strong> I develop the hooks and shoot in my studio or on location.</span>",
+    "<b>03</b><span><strong>Delivery</strong> You get the finished videos, including hook variations.</span>"
+  ]);
+  html(".ugc__actions a", ['Request UGC <span class="btn__arrow">→</span>', "View UGC projects"]);
+  html(".ugc__caption", ['<span class="ugc__tag">Spec Ad</span> DW Home – Marshmallow Cherry. Independently conceived and produced, not an official collaboration.']);
+  attr("#ugcMute", "aria-label", "Turn sound on");
+  attr("#ugcVideo", "aria-label", "UGC spec ad: DW Home Marshmallow Cherry candle");
+
   /* projects */
   html(".work__head .h2", ["Selected <em>projects.</em>"]);
   html(".work__head .lede", ["A selection of brand campaigns and food vlogging content — conceived vertically, made for Instagram &amp; TikTok."]);
@@ -144,6 +166,8 @@
       "calvin-klein-02": [null, "The second part of the Calvin Klein spec campaign – storytelling across several scenes with a consistent look. Independent concept, not an official collaboration."],
       "sang-sang-01": ["Sang Sang – Food Vlog", "Food vlog content from Sang Sang in Vienna – from ordering to the first bite, shot and edited by me."],
       "tokki-01": ["Tokki – Food Vlog", "Food vlog from Tokki – relatable storytelling with a strong hook and plenty of personality on camera."],
+      "ugc-dw-home-candle": ["DW Home Marshmallow Cherry – UGC Spec Ad", "UGC spec ad for the Marshmallow Cherry candle by DW Home – independently conceived and produced in my studio: flames, caramelised marshmallows and cherries tell the story of the scent. Not an official collaboration."],
+      "tortilla-01": ["Tortilla de Patata by Phil – Cooking Video", "My own cooking format: tortilla de patata – from a short dialogue as the opener through every single step to the flip and the first cut, edited so you can cook along right away."],
       "salmon-dill-01": ["Salmon in Dill Sauce by Phil – Cooking Video", "My own cooking format: salmon in dill sauce – from prep to plating, told in calm, mouth-watering shots."],
       "meatballs-01": ["Meatballs by Phil – Cooking Video", "My own cooking format: meatballs in tomato sauce – steam, texture and close-ups that make you want to cook along."]
     };
